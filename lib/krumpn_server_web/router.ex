@@ -21,9 +21,11 @@ defmodule KrumpnServerWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", KrumpnServerWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", KrumpnServerWeb do
+    pipe_through :api
+    get "/recipes", RecipeController, :index
+    get "/recipes/:id", RecipeController, :show
+  end
 
   # Enables LiveDashboard only for development
   #
